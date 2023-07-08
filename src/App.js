@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Person from './Person';
+// import Person from './Person';
 import TextForm from './components/TextForm';
 import { useState } from 'react';
 // import About from './components/About';
@@ -13,11 +13,11 @@ import Alert from './components/Alert';
 
 
 
-const moods = ['😂','😡','😲','😢','😟'];
-const mood = moods[Math.floor(Math.random()*moods.length)];
-const mooding =  moods.map((item)=>{
-  return <li>{item}</li>
-});
+// const moods = ['😂','😡','😲','😢','😟'];
+// const mood = moods[Math.floor(Math.random()*moods.length)];
+// const mooding =  moods.map((item)=>{
+//   return <li>{item}</li>
+// });
 
 function App(props) {
   const [mode,setMode] = useState('light'); //Whether dark mode is enabled or not
@@ -82,7 +82,7 @@ function App(props) {
 
 
 
-         <div>
+         {/* <div>
           <Person name="Ashish" age="26" favColor="blue"></Person>
           <h1>Your mood is: {mood}</h1>
 
@@ -90,7 +90,7 @@ function App(props) {
             {mooding}
 
           </ul>
-         </div>
+         </div> */}
          
       </> 
     ); 

@@ -44,13 +44,16 @@ const TextForm = (props) => {
           <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to uppercase</button>
           <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to lowercase</button>
           <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear text</button>        
-          <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>copy text</button>        
+          <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>Copy text</button>        
           <button className="btn btn-primary mx-1 my-1" onClick={handleRemoveXtraSpaces}>Remove extra spaces</button>        
         </div>
         <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
            <h2>Your text summery</h2>
-           <p>{text.split(' ').filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
-           <p>{0.008 * text.split(' ').length}   Minutes read</p>
+           <p>{text.split(/(?:\n| )+/).filter((element)=>{return element.length!==0}).length} words and {" "}
+              {text.length - (text.match(/\n/g) || []).length - (text.match(/ /g) || []).length } characters
+           </p>
+           {/* <p>{text.split(' ').join(',').split('\n').join(',').split(',').filter((element)=>{return element.length!==0}).length}</p> */}
+           <p>{0.008 * text.split(/(?:\n| )+/).filter((element)=>{return element.length!==0}).length} Minutes read</p>
            <h1>Preview</h1>
            <p>{text.length>0?text:"Enter something in the textbox above to preview it here"}</p>
         </div>
